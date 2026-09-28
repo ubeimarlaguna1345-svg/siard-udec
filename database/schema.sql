@@ -41,3 +41,14 @@ INSERT INTO tipos_respuesta (nombre) VALUES
     ('Selección múltiple'),
     ('Texto libre'),
     ('Verdadero/Falso');
+    
+CREATE TABLE evaluaciones (
+    id_evaluacion SERIAL PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    enunciado TEXT,
+    fecha_inicio TIMESTAMP,
+    fecha_fin TIMESTAMP,
+    id_tipo_evaluacion INT NOT NULL DEFAULT 1 REFERENCES tipos_evaluacion(id_tipo_evaluacion),
+    id_creador INT NOT NULL REFERENCES usuarios(id_usuario),
+    CHECK (fecha_fin IS NULL OR fecha_inicio IS NULL OR fecha_fin > fecha_inicio)
+);
