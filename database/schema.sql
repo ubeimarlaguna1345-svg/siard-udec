@@ -19,3 +19,25 @@ CREATE TABLE usuarios (
     contrasena_hash VARCHAR(255) NOT NULL,
     id_rol INT NOT NULL REFERENCES roles(id_rol)
 );
+
+CREATE TABLE tipos_evaluacion (
+    id_tipo_evaluacion SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO tipos_evaluacion (nombre) VALUES
+    ('General'),
+    ('Parcial'),
+    ('Examen final'),
+    ('Cuestionario formativo'),
+    ('Autoevaluación');
+
+CREATE TABLE tipos_respuesta (
+    id_tipo_respuesta SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO tipos_respuesta (nombre) VALUES
+    ('Selección múltiple'),
+    ('Texto libre'),
+    ('Verdadero/Falso');
