@@ -12,3 +12,10 @@ INSERT INTO roles (nombre) VALUES
     ('Docente'),
     ('Estudiante');
     
+CREATE TABLE usuarios (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    contrasena_hash VARCHAR(255) NOT NULL,
+    id_rol INT NOT NULL REFERENCES roles(id_rol)
+);
