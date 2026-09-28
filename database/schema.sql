@@ -52,3 +52,11 @@ CREATE TABLE evaluaciones (
     id_creador INT NOT NULL REFERENCES usuarios(id_usuario),
     CHECK (fecha_fin IS NULL OR fecha_inicio IS NULL OR fecha_fin > fecha_inicio)
 );
+
+CREATE TABLE preguntas (
+    id_pregunta SERIAL PRIMARY KEY,
+    id_evaluacion INT NOT NULL REFERENCES evaluaciones(id_evaluacion) ON DELETE CASCADE,
+    texto TEXT NOT NULL,
+    id_tipo_respuesta INT NOT NULL DEFAULT 2 REFERENCES tipos_respuesta(id_tipo_respuesta),
+    orden INT NOT NULL DEFAULT 1
+);
