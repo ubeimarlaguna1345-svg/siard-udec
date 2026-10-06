@@ -85,3 +85,9 @@ CREATE TABLE respuestas (
     texto_respuesta TEXT,
     UNIQUE (id_envio, id_pregunta)
 );
+
+ALTER TABLE evaluaciones
+    ADD COLUMN id_docente INT REFERENCES usuarios(id_usuario);
+    
+ALTER TABLE envios
+    RENAME COLUMN id_estudiante TO id_usuario;
