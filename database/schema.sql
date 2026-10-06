@@ -97,3 +97,7 @@ INSERT INTO tipos_evaluacion (nombre) VALUES ('Sondeo de tema');
 ALTER TABLE evaluaciones
     ADD COLUMN tema VARCHAR(150),
     ADD COLUMN solo_creador BOOLEAN NOT NULL DEFAULT FALSE;
+
+    
+ALTER TABLE usuarios
+    ADD COLUMN activo BOOLEAN NOT NULL DEFAULT TRUE;
