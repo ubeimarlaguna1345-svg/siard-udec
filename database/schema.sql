@@ -76,3 +76,12 @@ CREATE TABLE envios (
     observacion VARCHAR(1000),
     UNIQUE (id_evaluacion, id_estudiante)
 );
+
+CREATE TABLE respuestas (
+    id_respuesta SERIAL PRIMARY KEY,
+    id_envio INT NOT NULL REFERENCES envios(id_envio) ON DELETE CASCADE,
+    id_pregunta INT NOT NULL REFERENCES preguntas(id_pregunta),
+    id_opcion INT REFERENCES opciones_respuesta(id_opcion),
+    texto_respuesta TEXT,
+    UNIQUE (id_envio, id_pregunta)
+);
