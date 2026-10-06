@@ -67,3 +67,12 @@ CREATE TABLE opciones_respuesta (
     texto VARCHAR(255) NOT NULL,
     es_correcta BOOLEAN NOT NULL DEFAULT FALSE
 );
+
+CREATE TABLE envios (
+    id_envio SERIAL PRIMARY KEY,
+    id_evaluacion INT NOT NULL REFERENCES evaluaciones(id_evaluacion) ON DELETE CASCADE,
+    id_estudiante INT NOT NULL REFERENCES usuarios(id_usuario),
+    fecha_envio TIMESTAMP NOT NULL DEFAULT NOW(),
+    observacion VARCHAR(1000),
+    UNIQUE (id_evaluacion, id_estudiante)
+);
