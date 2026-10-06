@@ -91,3 +91,9 @@ ALTER TABLE evaluaciones
     
 ALTER TABLE envios
     RENAME COLUMN id_estudiante TO id_usuario;
+    
+INSERT INTO tipos_evaluacion (nombre) VALUES ('Sondeo de tema');
+
+ALTER TABLE evaluaciones
+    ADD COLUMN tema VARCHAR(150),
+    ADD COLUMN solo_creador BOOLEAN NOT NULL DEFAULT FALSE;

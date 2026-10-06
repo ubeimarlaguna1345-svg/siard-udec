@@ -27,3 +27,19 @@ INSERT INTO envios (id_evaluacion, id_usuario, observacion) VALUES
 INSERT INTO respuestas (id_envio, id_pregunta, id_opcion, texto_respuesta) VALUES
     (1, 1, 2, NULL),
     (1, 2, NULL, 'Más ejemplos prácticos.');
+
+    
+INSERT INTO evaluaciones (titulo, enunciado, id_tipo_evaluacion, id_creador, tema, solo_creador) VALUES
+    ('Sondeo: tema de hoy', 'Cuéntame qué tal te pareció el tema de la clase.',
+     (SELECT id_tipo_evaluacion FROM tipos_evaluacion WHERE nombre = 'Sondeo de tema'),
+     3, 'Introducción a bases de datos', TRUE);
+
+INSERT INTO preguntas (id_evaluacion, texto, id_tipo_respuesta, orden) VALUES
+    (2, '¿Qué tal te pareció el tema de hoy?', 2, 1);
+
+    
+INSERT INTO envios (id_evaluacion, id_usuario) VALUES
+    (2, 4);
+
+INSERT INTO respuestas (id_envio, id_pregunta, texto_respuesta) VALUES
+    (2, 3, 'Me gustó, pero fue un poco rápido.');
