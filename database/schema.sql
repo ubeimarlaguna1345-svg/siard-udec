@@ -60,3 +60,10 @@ CREATE TABLE preguntas (
     id_tipo_respuesta INT NOT NULL DEFAULT 2 REFERENCES tipos_respuesta(id_tipo_respuesta),
     orden INT NOT NULL DEFAULT 1
 );
+
+CREATE TABLE opciones_respuesta (
+    id_opcion SERIAL PRIMARY KEY,
+    id_pregunta INT NOT NULL REFERENCES preguntas(id_pregunta) ON DELETE CASCADE,
+    texto VARCHAR(255) NOT NULL,
+    es_correcta BOOLEAN NOT NULL DEFAULT FALSE
+);
