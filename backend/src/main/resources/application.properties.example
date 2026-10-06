@@ -1,0 +1,7 @@
+# Plantilla de configuración. Copia este archivo como application.properties
+# (en esta misma carpeta) y cambia los valores por los de tu computador.
+# application.properties NO se sube a Git porque lleva contraseñas.
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/siard_db
+spring.datasource.username=postgres
+spring.datasource.password=CAMBIAR_POR_TU_CONTRASENA
